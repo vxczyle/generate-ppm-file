@@ -5,9 +5,6 @@ import time
 import argparse
 import sys
 
-W = 500
-H = 500
-
 
 parser = argparse.ArgumentParser(description= "1 = True, 0 = False. THE DEFAULT WIDTH HEIGHT IS UH UHHH 500X500 JSYK OKAY BUHBYE")
 parser.add_argument("-p", help="Choose whether to open the app in Photos.exe", type=int, metavar="{0,1}")
@@ -20,8 +17,9 @@ args = parser.parse_args(["-h"] if len(sys.argv) == 1 else None)
 delppm = args.d
 photos = args.p
 startppm = args.s
-W = args.w
-H = args.h
+
+W = args.width
+H = args.height
 print("the t instead of -h in height stands for tall btw HHAHAHHAAHAAHA ahem")
 
 with open('example.ppm', 'w') as fisk:
