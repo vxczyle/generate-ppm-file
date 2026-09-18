@@ -5,22 +5,24 @@ import time
 import argparse
 import sys
 
-
-parser = argparse.ArgumentParser(description= "1 = True, 0 = False. THE DEFAULT WIDTH HEIGHT IS UH UHHH 500X500 JSYK OKAY BUHBYE")
+parser = argparse.ArgumentParser(description="Very good random noise image generator PPM file yes. By: vxczyle")
 parser.add_argument("-p", help="Choose whether to open the app in Photos.exe", type=int, metavar="{0,1}")
 parser.add_argument("-d", help="Deletes the PPM file", type=int, metavar="{0,1}")
-# For this part to actually work you need a image viewer that's set to view PPM files by default :)
 parser.add_argument("-s", help="Opens the PPM file", type=int, metavar="{0,1}")
-parser.add_argument("-w", "--width", help="Sets the width of the image", type=int, metavar="number")
-parser.add_argument("-t", "--height", help="Sets the height of the image", type=int, metavar="number")
+parser.add_argument("-w", "--width", help="Sets the width of the image", type=int, metavar="number", required=True)
+parser.add_argument("-t", "--height", help="Sets the height of the image", type=int, metavar="number", required=True)
 args = parser.parse_args(["-h"] if len(sys.argv) == 1 else None)
 
 delppm = args.d
 photos = args.p
 startppm = args.s
 
-W = args.width
 H = args.height
+W = args.width
+
+if W == None or H == None:
+    print("Uh so the W and H values are integers and uh they are required. Please and thank you.")
+
 print("the t instead of -h in height stands for tall btw HHAHAHHAAHAAHA ahem")
 
 with open('example.ppm', 'w') as fisk:
@@ -36,6 +38,7 @@ with open('example.ppm', 'w') as fisk:
 subprocess.run("magick example.ppm output.png", capture_output=False)
 time.sleep(0.2)
 if photos == 1 and delppm == 1:
+    os.startfile("output.png")
     os.remove("example.ppm")
 elif photos == 1 and delppm == None:
     os.startfile("output.png")
