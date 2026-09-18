@@ -9,6 +9,7 @@ import sys
 parser = argparse.ArgumentParser(description= "1 = True, 0 = False. THE DEFAULT WIDTH HEIGHT IS UH UHHH 500X500 JSYK OKAY BUHBYE")
 parser.add_argument("-p", help="Choose whether to open the app in Photos.exe", type=int, metavar="{0,1}")
 parser.add_argument("-d", help="Deletes the PPM file", type=int, metavar="{0,1}")
+# For this part to actually work you need a image viewer that's set to view PPM files by default :)
 parser.add_argument("-s", help="Opens the PPM file", type=int, metavar="{0,1}")
 parser.add_argument("-w", "--width", help="Sets the width of the image", type=int, metavar="number")
 parser.add_argument("-t", "--height", help="Sets the height of the image", type=int, metavar="number")
